@@ -1,0 +1,13 @@
+ <h1> My Diary</h1>
+ <br>
+<div class="container">
+
+  <p class="h1">This in an application that contains the information you would want to remember in the coming  days,weeks or even years.</p>
+  <div *ngFor="let diary of diary; let i =index">
+   
+    <p id="{{i}}" appStrikethrough>{{diary.name}} {{diary.description}} {{diary.completeDate|date}}</p>
+    <app-diary-details *ngIf="diary.showDescription" [diary]="diary" (isComplete) ="deleteDiary($event, i)"></app-diary-details>
+
+    </div>
+    <app-diary-form (addDiary)="addnewDiary($event)"></app-diary-form>
+</div>
